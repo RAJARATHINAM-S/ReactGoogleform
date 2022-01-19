@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.mainh{
+width: 100%;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.mcontainer{
+    height: 65vh;
+    border: 2px solid grey;
+    padding: 15px;
+    border-radius: .5rem;
+}
+.in{
+    margin-right: 10px;
+    height: 4vh;
+    padding-bottom: 2px;
+    margin: 15px  0 0 6px;
+}
+.em{
+ display: flex;
+ 
+width: 27.5vw;
+margin-bottom: 0px;
+
+}
+.checkbox{
+    display: flex;
+    font-size: 0.9rem;
+    align-items: center;
+   margin-top: 30px;
+   margin-left: 15px;
+}
+.lb{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    border: none;
+    color: blue;
+    padding: 4px;
+    
+}
+.nextbtn{
+    border: blue; 
+    background-color: blue;
+    color: white;
+    padding: 6px 16px;
+}
