@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import axois from "axios";
 import "./signin.css";
+import { Link } from "react-router-dom";
 
 const Signin = () => {
   const [detail, setDetail] = useState({
@@ -9,7 +11,15 @@ const Signin = () => {
   const [showPassword, setPassword] = useState(true);
   const Submit = () => {
     if (detail.mail !== "" && detail.password !== "") {
-      alert("Sucess");
+      let dataz = { email: detail.mail, password: detail.password };
+      axois
+        .post("/users/login", dataz)
+        .then(() => {
+          console.log("sucess");
+        })
+        .catch((e) => {
+          console.log(e + "failure");
+        });
       setDetail({
         mail: "",
         password: "",
@@ -58,8 +68,8 @@ const Signin = () => {
           <button>Learn more</button>
         </div>
         <div className="sub1">
-          <button>Create account</button>
-          <button onClick={Submit}>Next</button>
+         <Link to="/signup"> <button>Create account</button></Link>
+         <Link to="/"> <button onClick={Submit}>Next</button></Link>
         </div>
       </div>
     </div>

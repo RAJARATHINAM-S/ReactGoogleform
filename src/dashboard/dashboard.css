@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.addtask{
+    display: flex;
+    position: absolute;
+    left: 35%;
+    top: 20%;
+}
+/* .archive{
+    position: absolute;
+    left: 30%;
+    top: 30%;
+} */

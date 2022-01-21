@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import Mainpage from './mainpage/mainpage';
+
+
 import reportWebVitals from './reportWebVitals';
-// import Signin from './signin/signin';
-import Signup from './signup/signup';
+
 
 ReactDOM.render(
-
   
-    // <Signin/>,
-    <Signup/>,
+<Mainpage/>,
   document.getElementById('root')
 );
 
