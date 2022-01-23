@@ -3,12 +3,15 @@
     margin: 0;
     box-sizing: border-box;
 }
+div.sidebarmain{
+    width: 16vw;}
 .sidebarmain{
     display: flex;
     flex-direction: column;
     height: 87vh;
-    width: max-content;
-    background-color: green;
+    width: 16vw;
+    
+    
 }
 .sb{
     display: flex;
@@ -16,7 +19,7 @@
     gap: 20px;
 }
 .sb:hover{
-    background-color: greenyellow;
+    background-color: rgb(184, 240, 106);
     border-radius: 0 1rem 1rem 0;
     /* margin-right: 20px; */
 }

@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "../addtask/addtask.css";
+import { MdBrush, MdCropOriginal, MdOutlineReviews,MdOutlineUndo,MdOutlineRedo } from "react-icons/md";
 import Icons from "../icons/icons";
-const Addtask = () => {
+import { BsPin } from "react-icons/bs";
+const Addtask = ({ setfetch }) => {
   const [display, setDisplay] = useState(true);
   const [task, setTask] = useState({ title: "", note: "" });
-  console.log(task);
+
   const Submit = () => {
     setDisplay(true);
-    let notes={title:task.title,note:task.note}
-    console.log(notes);
-    setTask({title:"",note:""})
+    let notes = { title: task.title, description: task.note, color: "white" };
+    axios.post("/tasks", notes, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    // console.log(notes);
+    setTask({ title: "", note: "" });
+    setfetch((prev) => !prev);
   };
-  console.log(display);
+  // console.log(display);
   return (
     <div>
       {display ? (
@@ -27,9 +36,15 @@ const Addtask = () => {
             }}
             placeholder="Take a note"
           />
-          <button>5</button>
-          <button>6</button>
-          <button>7</button>
+          <button>
+            <MdOutlineReviews />
+          </button>
+          <button>
+            <MdBrush />
+          </button>
+          <button>
+            <MdCropOriginal />
+          </button>
         </div>
       ) : (
         <div>
@@ -43,7 +58,9 @@ const Addtask = () => {
                   setTask({ ...task, title: e.target.value });
                 }}
               />
-              <button>in</button>
+              <div>
+                <BsPin />
+              </div>
             </div>
             <div>
               <input
@@ -57,8 +74,8 @@ const Addtask = () => {
             </div>
             <div className="Addicons">
               <Icons />
-              <button>l</button>
-              <button>r</button>
+              <span><MdOutlineUndo/></span>
+              <span><MdOutlineRedo/></span>
               <span className="close">
                 {" "}
                 <button onClick={Submit}>close</button>

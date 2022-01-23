@@ -13,7 +13,7 @@ const Signup = () => {
     confirmPassword: "",
   });
   // console.log(data);
-  const submit = () => {
+  const submit = async () => {
     if (
       data.firstName !== "" &&
       data.lastName !== "" &&
@@ -28,15 +28,12 @@ const Signup = () => {
         email: data.email,
         password: data.password,
       };
-      axios
-        .post("/users", dataz)
-        .then(() => {
-          console.log("sucess");
-        })
-        .catch((e) => {
-          console.log(e+"failure");
-        });
-      console.log(data);
+      try {
+        let result = await axios.post("/users", dataz);
+        localStorage.setItem("token", result.data.token);
+      } catch (e) {
+        console.log(e);
+      }
     } else console.log("Enter the all values");
   };
   return (
@@ -110,7 +107,10 @@ const Signup = () => {
           <h6>showPassword</h6>
         </span>
         <div className="lb">
-         <Link to="/signin"> <button>Signin instead</button></Link>
+          <Link to="/signin">
+            {" "}
+            <button>Signin instead</button>
+          </Link>
           <button className="nextbtn" onClick={submit}>
             Next
           </button>

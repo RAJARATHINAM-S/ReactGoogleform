@@ -9,23 +9,27 @@ const Signin = () => {
     password: "",
   });
   const [showPassword, setPassword] = useState(true);
-  const Submit = () => {
+  const Submit = async () => {
     if (detail.mail !== "" && detail.password !== "") {
       let dataz = { email: detail.mail, password: detail.password };
-      axois
-        .post("/users/login", dataz)
-        .then(() => {
-          console.log("sucess");
-        })
-        .catch((e) => {
-          console.log(e + "failure");
-        });
-      setDetail({
-        mail: "",
-        password: "",
-      });
-    } else alert("Enter the mail and password");
+      try {
+        let result = await axois.post("/users/login", dataz);
+        console.log(result);
+        localStorage.setItem("token", result.data.token);
+        window.location.href=("/notes");
+      } catch (e) {
+        console.log(e);
+        alert(e);
+      }
+    } else {
+      alert("login failed");
+    }
+    setDetail({
+      mail: "",
+      password: "",
+    });
   };
+
   console.log(detail);
   return (
     <div className="main">
@@ -68,8 +72,14 @@ const Signin = () => {
           <button>Learn more</button>
         </div>
         <div className="sub1">
-         <Link to="/signup"> <button>Create account</button></Link>
-         <Link to="/"> <button onClick={Submit}>Next</button></Link>
+          <Link to="/signup">
+            {" "}
+            <button>Create account</button>
+          </Link>
+          <Link to="/">
+            {" "}
+            <button onClick={Submit}>Next</button>
+          </Link>
         </div>
       </div>
     </div>
