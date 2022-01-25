@@ -8,7 +8,7 @@ import axios from "axios";
 const Notes = () => {
   const [data, setdata] = useState([]);
   const [fetch, setfetch] = useState(false);
-  
+ // data.map(({_id})=>{console.log(_id);})//........................................//
   useEffect(() => {
     const fetchdata = async () => {
       let result = await axios.get("/tasks?skip=0&limit=100", {
@@ -16,9 +16,9 @@ const Notes = () => {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      console.log(result);
-      setdata(result.data);
-      console.log(data);
+     // console.log(result);
+      setdata(result.data); 
+    console.log(data);
     };
     fetchdata();
   }, [fetch]);
@@ -42,8 +42,9 @@ const Notes = () => {
             })
             .map(({ title, description, color, _id },index) => {
               return <Tasknote title={title} description={description} 
-              color={color} key={_id || index}/>;
+              color={color} id={_id || index} setfetch={setfetch}/>;
             })}
+            
         </div>
       </div>
     </>
