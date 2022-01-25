@@ -14,3 +14,11 @@
   
   
 }
+.archi{
+    top: 15%;
+    position: absolute;
+    
+    left: 20vw;
+    display: flex;
+    flex-wrap: wrap;
+}

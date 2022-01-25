@@ -8,6 +8,7 @@ import axios from "axios";
 const Notes = () => {
   const [data, setdata] = useState([]);
   const [fetch, setfetch] = useState(false);
+  
   useEffect(() => {
     const fetchdata = async () => {
       let result = await axios.get("/tasks?skip=0&limit=100", {
@@ -21,7 +22,7 @@ const Notes = () => {
     };
     fetchdata();
   }, [fetch]);
-
+  
   //console.log(task);
   return (
     <>
@@ -29,16 +30,22 @@ const Notes = () => {
       <div>
         <Sidebar />
         <div className="addtask">
-        <Addtask setfetch={setfetch} />
+          <Addtask setfetch={setfetch} />
+        </div>
+        <div className="taskbox">
+          {data
+            .filter((val) => {
+              return val?.isDeleted === false;
+            })
+            .filter((val) => {
+              return val?.isArchived === false;
+            })
+            .map(({ title, description, color, _id },index) => {
+              return <Tasknote title={title} description={description} 
+              color={color} key={_id || index}/>;
+            })}
+        </div>
       </div>
-      <div className="taskbox">
-        {data.map(({ title, description, color, _id }) => {
-          return <Tasknote title={title} description={description} />;
-        })}
-      </div>
-      </div>
-
-      
     </>
   );
 };
