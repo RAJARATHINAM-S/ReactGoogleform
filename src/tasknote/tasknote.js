@@ -15,7 +15,9 @@ const Tasknote = ({ title, description, id, setfetch }) => {
   const [option, setOption] = useState(false);
    const [updatetask] = useMutation(UpdateTask);
   const update = useCallback(
+    
     async (type = "delete") => {
+      setOption(false)
       let data =
         type === "delete"
           ? {
