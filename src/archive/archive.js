@@ -6,7 +6,6 @@ import "../notes/notes.css";
 import Tasknote from "../tasknote/tasknote";
 import axios from "axios";
 
-
 const Notes = () => {
   const [data, setdata] = useState([]);
   const [fetch, setfetch] = useState(false);
@@ -24,14 +23,13 @@ const Notes = () => {
     fetchdata();
   }, [fetch]);
 
-  //console.log(task);
+  
   return (
     <>
-      <Navbar />
       <div>
-        <Sidebar />
-       
-        <div  className="archi">
+        <h2>archive</h2>
+
+        <div className="archi">
           {data
             .filter((val) => {
               return val?.isDeleted === false;
@@ -39,9 +37,16 @@ const Notes = () => {
             .filter((val) => {
               return val?.isArchived === true;
             })
-            .map(({ title, description, color, _id },index) => {
-              return <Tasknote title={title} description={description} 
-              color={color} key={_id || index}/>;
+            .map(({ title, description, color, _id }, index) => {
+              return (
+                <Tasknote
+                  title={title}
+                  description={description}
+                  color={color}
+                  id={_id || index}
+                  setfetch={{ setfetch }}
+                />
+              );
             })}
         </div>
       </div>

@@ -11,7 +11,10 @@
    left: 20vw;
    display: flex;
    flex-wrap: wrap;
-  
+   overflow: auto;
+   flex-grow: 1;
+   height: 65vh;
+  align-content: flex-start;
   
 }
 .archi{

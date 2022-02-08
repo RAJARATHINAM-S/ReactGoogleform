@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../addtask/addtask.css";
 import { MdBrush, MdCropOriginal, MdOutlineReviews,MdOutlineUndo,MdOutlineRedo } from "react-icons/md";
 import Icons from "../icons/icons";

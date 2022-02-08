@@ -9,3 +9,9 @@
     left: 30%;
     top: 30%;
 } */
+.sidebox{
+    display: flex;
+}
+.side{
+    flex-grow: 1;
+}

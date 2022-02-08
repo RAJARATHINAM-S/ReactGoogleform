@@ -11,14 +11,14 @@ import Signup from "../signup/signup";
 
 const islogin = () => {
   let token = localStorage.getItem("token") || "";
-  return token ? true : false;
+  return token ? true: false;
 };
 const PublicRoute = ({ component : Component, ...res }) => {
   return (
     <Route
       {...res}
       render={(probs) =>
-        islogin() ? <Redirect to="/notes" /> : <Component {...probs} />
+        islogin() ? <Redirect to="/" /> : <Component {...probs} />
       }
     />
   );
@@ -38,9 +38,9 @@ const Mainpage = () => {
     
     <Router>
       <Switch>
-        <PublicRoute exact component={Signin} path="/signin"/>
-        <PublicRoute exact component={Signup} path="/signup" />
-        <PrivateRoute exact component={Dashboard} path="/notes" />
+        <PublicRoute component={Signin} exact path="/signin"/>
+        <PublicRoute component={Signup}  exact path="/signup" />
+        <PrivateRoute component={Dashboard} path="/" />
       </Switch>
     </Router>
   );

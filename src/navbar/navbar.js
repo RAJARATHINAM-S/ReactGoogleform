@@ -1,8 +1,6 @@
 import React from "react";
-import Addtask from "../addtask/addtask";
 import "../navbar/navbar.css";
 import { MdDehaze } from "react-icons/md";
-import Sidebar from "../sidebar/sidebar";
 const Navbar = () => {
   return (
     <>

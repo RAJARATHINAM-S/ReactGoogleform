@@ -9,7 +9,8 @@ div.sidebarmain{
     display: flex;
     flex-direction: column;
     height: 87vh;
-    width: 16vw;
+   min-width:16vw;
+   width: fit-content;
     
     
 }

@@ -10,25 +10,26 @@ import {
 } from "react-icons/md";
 import axios from "axios";
 
-const Icons = ({id,setfetch}) => {
-   // console.log(id);
-  const update = useCallback(async (type = "delete") => {
-    let data = type === "delete" ? { isDeleted: true } : { isArhived: true };
-    console.log(
-        data
-    );
-    try {
-        let result =await axios.patch(`/tasks/${id}`,data,{headers:{
-            Authorization:`Bearer ${localStorage.getItem("token")}`
-            
-        }});
-        setfetch(prev=>!prev)
+const Icons = ({ id, setfetch }) => {
+  // console.log(id);
+  const update = useCallback(
+    async (type = "delete") => {
+      let data = type === "delete" ? { isDeleted: true } : { isArchived: true };
+      console.log(data);
+      try {
+        let result = await axios.patch(`/tasks/${id}`, data, {
+          headers: {
+            Authorization:`Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        setfetch((prev) => !prev);
         console.log(result);
-    }catch(e){
+      } catch (e) {
         console.log(e);
-    }
-   
-  },[id,fetch]);
+      }
+    },
+    [id, fetch]
+  );
   return (
     <div className="micons">
       <span className="inc">
@@ -43,7 +44,11 @@ const Icons = ({id,setfetch}) => {
       <span>
         <MdCropOriginal />
       </span>
-      <button onClick={()=>{update("archive")}}>//---------------------invalid updates-------------------------------------------------//
+      <button
+        onClick={() => {
+          update("Archive");
+        }}
+      >
         <MdOutlineArchive />
       </button>
       <span>
