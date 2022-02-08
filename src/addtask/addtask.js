@@ -1,13 +1,22 @@
 import axios from "axios";
 import React, { useState } from "react";
 import "../addtask/addtask.css";
-import { MdBrush, MdCropOriginal, MdOutlineReviews,MdOutlineUndo,MdOutlineRedo } from "react-icons/md";
+import {
+  MdBrush,
+  MdCropOriginal,
+  MdOutlineReviews,
+  MdOutlineUndo,
+  MdOutlineRedo,
+} from "react-icons/md";
 import Icons from "../icons/icons";
 import { BsPin } from "react-icons/bs";
+import { useQuery } from "@apollo/client";
+import { getAllTasks } from "../Graphql";
 const Addtask = ({ setfetch }) => {
   const [display, setDisplay] = useState(true);
   const [task, setTask] = useState({ title: "", note: "" });
-
+  const { data, loading, error } = useQuery(getAllTasks);
+ 
   const Submit = () => {
     setDisplay(true);
     let notes = { title: task.title, description: task.note, color: "white" };
@@ -19,8 +28,11 @@ const Addtask = ({ setfetch }) => {
     // console.log(notes);
     setTask({ title: "", note: "" });
     setfetch((prev) => !prev);
+    let max = data.tasks;
+    console.log(max);
   };
   // console.log(display);
+
   return (
     <div>
       {display ? (
@@ -52,6 +64,7 @@ const Addtask = ({ setfetch }) => {
             <div className="in1  ">
               <input
                 className="in"
+                autoFocus={true}
                 placeholder="Title"
                 value={task.value}
                 onChange={(e) => {
@@ -65,7 +78,7 @@ const Addtask = ({ setfetch }) => {
             <div>
               <input
                 className="in"
-                autoFocus={true}
+                
                 placeholder="Take a note..."
                 onChange={(e) => {
                   setTask({ ...task, note: e.target.value });
@@ -74,8 +87,12 @@ const Addtask = ({ setfetch }) => {
             </div>
             <div className="Addicons">
               <Icons />
-              <span><MdOutlineUndo/></span>
-              <span><MdOutlineRedo/></span>
+              <span>
+                <MdOutlineUndo />
+              </span>
+              <span>
+                <MdOutlineRedo />
+              </span>
               <span className="close">
                 {" "}
                 <button onClick={Submit}>close</button>

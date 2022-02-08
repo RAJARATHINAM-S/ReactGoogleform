@@ -13,6 +13,20 @@
     min-height: 60px;
     height: fit-content;
 }
+.boxex{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.options{
+    z-index: 4;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border: 2px solid grey;
+  }
 .fs{
     border: none;
     outline: none;

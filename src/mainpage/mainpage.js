@@ -36,7 +36,7 @@ const PrivateRoute = ({ component: Component, ...res }) => {
 const Mainpage = () => {
   return (
     
-    <Router>
+    <Router forceRefresh={true}>
       <Switch>
         <PublicRoute component={Signin} exact path="/signin"/>
         <PublicRoute component={Signup}  exact path="/signup" />

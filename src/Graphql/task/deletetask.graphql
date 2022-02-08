@@ -1,0 +1,6 @@
+mutation DeleteTask($task_id: ID!) {
+  DeleteTask(task_id: $task_id)
+    @rest(type: "Task", path: "tasks/{args.task_id}") {
+    id
+  }
+}

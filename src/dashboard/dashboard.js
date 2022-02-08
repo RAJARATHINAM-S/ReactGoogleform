@@ -15,7 +15,7 @@ const Dashboard = () => {
       <Navbar />
       <Sidebar />
       
-      <Router>
+      <Router forceRefresh={true}>
         <Switch>
           <Route component={Archive} exact path="/archive" />
           <Route component={Trash}exact path="/trash" />

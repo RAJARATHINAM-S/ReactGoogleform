@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import "../icons/icons.css";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import {
@@ -8,53 +8,45 @@ import {
   MdAddAlert,
   MdCropOriginal,
 } from "react-icons/md";
-import axios from "axios";
 
-const Icons = ({ id, setfetch }) => {
-  // console.log(id);
-  const update = useCallback(
-    async (type = "delete") => {
-      let data = type === "delete" ? { isDeleted: true } : { isArchived: true };
-      console.log(data);
-      try {
-        let result = await axios.patch(`/tasks/${id}`, data, {
-          headers: {
-            Authorization:`Bearer ${localStorage.getItem("token")}`,
-          },
-        });
-        setfetch((prev) => !prev);
-        console.log(result);
-      } catch (e) {
-        console.log(e);
-      }
-    },
-    [id, fetch]
-  );
+
+const Icons = ({ setOption,update}) => {
+  
+ 
   return (
-    <div className="micons">
-      <span className="inc">
-        <MdAddAlert />
-      </span>
-      <span>
-        <MdPersonAddAlt />
-      </span>
-      <span>
-        <MdPalette />
-      </span>
-      <span>
-        <MdCropOriginal />
-      </span>
-      <button
-        onClick={() => {
-          update("Archive");
-        }}
-      >
-        <MdOutlineArchive />
-      </button>
-      <span>
-        <BiDotsVerticalRounded />
-      </span>
-    </div>
+    <>
+      <div className="micons">
+        <span className="inc">
+          <MdAddAlert />
+        </span>
+        <span>
+          <MdPersonAddAlt />
+        </span>
+        <span>
+          <MdPalette />
+        </span>
+        <span>
+          <MdCropOriginal />
+        </span>
+        <button
+          onClick={() => {
+            update("Archive");
+          }}
+        >
+          <MdOutlineArchive />
+        </button>
+        <span
+          onClick={() => {
+            setOption(prev=>!prev);
+          }}
+          onMouseLeave={()=>{setTimeout(()=>setOption(false),3000)}}
+          
+        >
+       <BiDotsVerticalRounded />
+       
+        </span>
+      </div>
+    </>
   );
 };
 

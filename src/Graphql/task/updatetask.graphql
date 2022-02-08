@@ -1,0 +1,14 @@
+mutation UpdateTask($id: ID!, $body: String!) {
+  updateTask(id: $id, body: $body)
+    @rest(
+      type: "Task"
+      path: "tasks/{args.id}"
+      method: "PATCH"
+      bodyKey: "body"
+    ) {
+    _id
+    isDeleted
+    isArchived
+    isPinned
+  }
+}

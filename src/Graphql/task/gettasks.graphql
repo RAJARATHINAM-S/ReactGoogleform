@@ -1,0 +1,13 @@
+query GetTask($id: ID) {
+  tasks(id: $id) @rest(type: "Task", path: "tasks?skip=0&limit=100") {
+    _id
+    title
+    description
+    color
+    completed
+    createdAt
+    isDeleted
+    isArchived
+    isPinned
+  }
+}

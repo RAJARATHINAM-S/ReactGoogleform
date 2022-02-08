@@ -3,38 +3,33 @@ import Addtask from "../addtask/addtask";
 import "../notes/notes.css";
 import Tasknote from "../tasknote/tasknote";
 import axios from "axios";
+import { useQuery } from "@apollo/client";
+import { getAllTasks } from "../Graphql";
 const Notes = () => {
-  const [data, setdata] = useState([]);
-  const [fetch, setfetch] = useState(false);
-  // data.map(({ _id }) => {
-  //   console.log(_id);
-  // }); //........................................//
-  useEffect(() => {
-    const fetchdata = async () => {
-      let result = await axios.get("/tasks?skip=0&limit=100", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      console.log(result);
-      setdata(result.data);
-      console.log(data);
-    };
-    fetchdata();
-  }, [fetch]);
+  const{data,loading,error}=useQuery(getAllTasks)
+  console.log(data);
+  console.log(loading,error);
+  const [fetch, setFetch] = useState(true);
+  console.log(
+    fetch
+  );
 
+  
   return (
     <>
       <div className="addtask">
-        <Addtask setfetch={setfetch} />
+        <Addtask setfetch={setFetch}/>
       </div>
       <div className="taskbox">
-        {data
+        {data && data.tasks
           .filter((val) => {
             return val?.isDeleted === false;
           })
           .filter((val) => {
             return val?.isArchived === false;
+          })
+          .filter((val)=>{
+            return val?.isPinned === false;
           })
           .map(({ title, description, color, _id }, index) => {
             return (
@@ -43,7 +38,7 @@ const Notes = () => {
                 description={description}
                 color={color}
                 id={_id || index}
-                setfetch={setfetch}
+                setfetch={setFetch}
               />
             );
           })}
