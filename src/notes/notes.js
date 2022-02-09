@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Addtask from "../addtask/addtask";
 import "../notes/notes.css";
 import Tasknote from "../tasknote/tasknote";
-import axios from "axios";
 import { useQuery } from "@apollo/client";
 import { getAllTasks } from "../Graphql";
 const Notes = () => {
