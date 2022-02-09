@@ -20,7 +20,8 @@
 .archi{
     top: 15%;
     position: absolute;
-    
+    height: 60vh;
+    overflow: scroll;
     left: 20vw;
     display: flex;
     flex-wrap: wrap;

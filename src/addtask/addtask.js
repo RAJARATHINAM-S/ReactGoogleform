@@ -20,7 +20,7 @@ const Addtask = () => {
   const pressdown = (e) => {
     if (e.key === "Enter" && task) {
       Submit();
-      setTask(!task);
+      
     }
    
   };

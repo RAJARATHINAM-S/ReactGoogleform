@@ -5,7 +5,7 @@ import Sidebar from "../sidebar/sidebar";
 import "../notes/notes.css";
 import Tasknote from "../tasknote/tasknote";
 import axios from "axios";
-
+import "../archive/archive.css";
 const Notes = () => {
   const [data, setdata] = useState([]);
   const [fetch, setfetch] = useState(false);
@@ -27,9 +27,8 @@ const Notes = () => {
   return (
     <>
       <div>
-        <h2>archive</h2>
-
-        <div className="archi">
+       
+        <div className="arhi">
           {data
             .filter((val) => {
               return val?.isDeleted === false;
