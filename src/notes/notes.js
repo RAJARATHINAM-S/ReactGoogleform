@@ -5,7 +5,7 @@ import Tasknote from "../tasknote/tasknote";
 import { useQuery } from "@apollo/client";
 import { getAllTasks } from "../Graphql";
 const Notes = () => {
-  const{data,loading,error}=useQuery(getAllTasks)
+  const{data,loading,error}=useQuery(getAllTasks);
   console.log(data);
   console.log(loading,error);
   const [fetch, setFetch] = useState(true);
@@ -17,7 +17,7 @@ const Notes = () => {
   return (
     <>
       <div className="addtask">
-        <Addtask setfetch={setFetch}/>
+        <Addtask/>
       </div>
       <div className="taskbox">
         {data && data.tasks

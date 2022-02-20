@@ -17,17 +17,7 @@ const Addtask = () => {
   const [display, setDisplay] = useState(true);
   const [task, setTask] = useState({ title: "", note: "" });
   const [addtask] = useMutation(addTask);
-  const pressdown = (e) => {
-    if (e.key === "Enter" && task) {
-      Submit();
-      
-    }
-   
-  };
-  useEffect(() => {
-    window.removeEventListener("keydown", pressdown);
-    addTask && window.addEventListener("keydown", pressdown);
-  }, []);
+ 
   const Submit = useCallback(async () => {
     setDisplay(true);
     let data = { title: task.title, description: task.note, color: "white" };

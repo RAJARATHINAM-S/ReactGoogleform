@@ -11,7 +11,6 @@ const Tasknote = ({ title, description, id, setfetch }) => {
   //console.log(title);
   //console.log(description);
   //console.log(id);
-  const { data, loading, error } = useQuery(getAllTasks);
   const [option, setOption] = useState(false);
    const [updatetask] = useMutation(UpdateTask);
   const update = useCallback(
@@ -49,7 +48,7 @@ const Tasknote = ({ title, description, id, setfetch }) => {
         update: (store, { data: { updateTask } }) => {
           if (updateTask.isDeleted) {
             store.modify({
-              id: store.identify({ id: id, __typename: "Task" }),
+              id: store.identify({ id:id, __typename: "Task" }),
               fields: {
                 isDeleted() {
                   return updateTask.isDeleted;
