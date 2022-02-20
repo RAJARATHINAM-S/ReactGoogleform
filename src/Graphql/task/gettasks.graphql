@@ -1,5 +1,5 @@
 query GetTask($id: ID) {
-  tasks(id: $id) @rest(type: "Task", path: "tasks?skip=0&limit=100") {
+  tasks(id: $id) @rest(type: "Task", path: "tasks?skip=0&limit=500") {
     _id
     title
     description

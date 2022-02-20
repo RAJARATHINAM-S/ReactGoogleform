@@ -13,12 +13,21 @@ import { useMutation } from "@apollo/client";
 import { addTask, getAllTasks } from "../Graphql";
 import produce from "immer";
 import { useCallback } from "react";
-const Addtask = () => {
+const Addtask = ({setFetch}) => {
   const [display, setDisplay] = useState(true);
-  const [task, setTask] = useState({ title: "", note: "" });
+  const [task, setTask] = useState({ title: "default", note: "cdcdc" });
   const [addtask] = useMutation(addTask);
- 
-  const Submit = useCallback(async () => {
+  const pressdown = (e) => {
+
+    if (e.key === "Enter") {
+      console.log("ddcd");
+      Submit();
+      console.log("gyufty");
+      // setFetch((prev)=>!prev)
+    }
+  };
+
+  const Submit =  () => {
     setDisplay(true);
     let data = { title: task.title, description: task.note, color: "white" };
     // axios.post("/tasks", notes, {
@@ -68,7 +77,7 @@ const Addtask = () => {
       },
     });
     setTask({ title: "", note: "" });
-  }, [task, addtask]);
+  };
   // console.log(display);
 
   return (
@@ -120,6 +129,7 @@ const Addtask = () => {
                 onChange={(e) => {
                   setTask({ ...task, note: e.target.value });
                 }}
+                onKeyDown={pressdown}
               />
             </div>
             <div className="Addicons">
