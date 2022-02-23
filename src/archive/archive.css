@@ -11,4 +11,5 @@
     left: 20vw;
     display: flex;
     flex-wrap: wrap;
+    width: 80vw;
 }

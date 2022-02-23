@@ -104,8 +104,8 @@ const Tasknote = ({ title, description, id, setfetch }) => {
       </div>
       {option && (
         <div className="options">
-          <option onClick={update} >delete</option>
-          <option>Archive</option>
+          <option className="bos" onClick={update} >delete</option>
+          <option className="bos">Archive</option>
         </div>
       )}</span>
     </>

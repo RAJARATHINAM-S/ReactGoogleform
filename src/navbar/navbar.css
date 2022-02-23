@@ -21,10 +21,15 @@
 }
 .ng{
     display: flex;
-    gap: 10px;
+    gap: 25px;
 }
 .navsearch{
     width: 50vw;
+    height: 3.5vh;
+}
+.ic{
+  width: 2vw;
+  height: 4vh;
 }
 
 /* addtask */

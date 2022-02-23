@@ -32,3 +32,12 @@
     outline: none;
     margin: 4px;
 }
+.bos{
+    border: 2px solid green;
+    background-color: rgba(131, 131, 106, 0.247);
+    color: rgb(12, 11, 11);
+    padding: 2px;
+}
+.bos:hover{
+    cursor: pointer;
+}
