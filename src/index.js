@@ -1,6 +1,5 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { RestLink } from "apollo-link-rest";
-import React from "react";
 import ReactDOM from "react-dom";
 import Mainpage from "./mainpage/mainpage";
 
@@ -14,9 +13,11 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
+
   <ApolloProvider client={client}>
+    
     <Mainpage />
-  </ApolloProvider>,
+  </ApolloProvider> ,
   document.getElementById("root")
 );
 

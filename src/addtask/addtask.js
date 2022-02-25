@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../addtask/addtask.css";
 import {
   MdBrush,
@@ -13,10 +13,12 @@ import { useMutation } from "@apollo/client";
 import { addTask, getAllTasks } from "../Graphql";
 import produce from "immer";
 import { useCallback } from "react";
+import { context } from "../dashboard/dashboard";
 const Addtask = ({setFetch}) => {
   const [display, setDisplay] = useState(true);
-  const [task, setTask] = useState({ title: "default", note: "cdcdc" });
+  const [task, setTask] = useState({ title: "", note: "" });
   const [addtask] = useMutation(addTask);
+  const{ setSearch}=useContext(context)
   const pressdown = (e) => {
 
     if (e.key === "Enter") {
@@ -29,6 +31,7 @@ const Addtask = ({setFetch}) => {
 
   const Submit =  () => {
     setDisplay(true);
+    
     let data = { title: task.title, description: task.note, color: "white" };
     // axios.post("/tasks", notes, {
     //   headers: {
