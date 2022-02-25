@@ -6,8 +6,9 @@ import axios from "axios";
 import "../archive/archive.css";
 import { useQuery } from "@apollo/client";
 import { getAllTasks } from "../Graphql";
+import Load from "../loadingindicator/load";
 const Notes = () => {
-  const { data } = useQuery(getAllTasks);
+  const { data,loading } = useQuery(getAllTasks);
   // const [data, setdata] = useState([]);
   const [fetch, setfetch] = useState(false);
   // useEffect(() => {
@@ -23,11 +24,18 @@ const Notes = () => {
   //   };
   //   fetchdata();
   // }, [fetch]);
-
+  let reload=[];
+  for (let index = 0; index <= 20; index++) {
+    reload.push(index);
+    
+  }
   return (
     <>
       <div>
+     
         <div className="arhi">
+        {loading&& reload.map(()=>{return(<Load/>)})
+      } 
           {data &&
             data.tasks
               .filter((val) => {

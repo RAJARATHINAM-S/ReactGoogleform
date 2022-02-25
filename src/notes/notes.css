@@ -26,3 +26,12 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.row{
+    border: 3px solid gold;
+    width: 20vw;
+    height: 10vh;
+    background-color: aqua;
+    gap:20px;
+    display: flex;
+}
