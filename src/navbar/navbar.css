@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.navmain {
+  background-color: wheat;
+  display: flex;
+  height: 10vh;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav {
+  display: flex;
+  padding: 0 20px;
+}
+.nav2 {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.ng{
+    display: flex;
+    gap: 25px;
+}
+.navsearch{
+    width: 50vw;
+    height: 3.5vh;
+}
+.ic{
+  width: 2vw;
+  height: 4vh;
+}
+
+/* addtask */

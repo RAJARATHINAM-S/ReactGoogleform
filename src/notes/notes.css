@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.taskbox{
+    /* border: 2px solid grey; */
+   position: absolute;
+   top: 35%;
+   left: 20vw;
+   display: flex;
+   flex-wrap: wrap;
+   overflow: auto;
+   flex-grow: 1;
+   height: 65vh;
+  align-content: flex-start;
+  
+}
+.archi{
+    top: 15%;
+    position: absolute;
+    height: 60vh;
+    overflow: scroll;
+    left: 20vw;
+    display: flex;
+    flex-wrap: wrap;
+}

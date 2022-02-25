@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.addtask{
+    display: flex;
+    position: absolute;
+    left: 35%;
+    top: 14%;
+}
+.addnote{
+    display: flex;
+    gap: 5px;
+    border: 3px solid rgba(98, 102, 93, 0.267);
+    padding: 5px;
+    box-shadow: 2px 7px .6rem   gray;
+    outline: none;
+    
+}
+.addnote1{
+width: 27vw;
+border: none;
+outline: none;
+}
+.addtask2{
+    border: 2px solid rgba(227, 231, 227, 0.397);
+    box-shadow: 2px 2px 0.3rem 0.2rem rgb(130, 130, 155);
+    padding: 2px;
+   
+}
+.close{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+/* ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; */
+
+.in1{
+    display: flex;
+    justify-content: space-between;
+    
+    align-items: center;
+}
+.in{
+    
+    width: 30vw;
+    height: 5vh;
+    border: none;
+    outline: none;
+}
+/* ------------------- */
+.Addicons{
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+
+}

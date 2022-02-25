@@ -1,0 +1,11 @@
+mutation AddTask($body: String!) {
+  addTask(body: $body)
+    @rest(type: "Task", path: "tasks", method: "POST", bodyKey: "body") {
+    _id
+    title
+    description
+    labels
+    createdAt
+    color
+  }
+}

@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* .archive{
+    position: absolute;
+    left: 30%;
+    top: 30%;
+} */
+.sidebox{
+    display: flex;
+}
+.side{
+    flex-grow: 1;
+}
